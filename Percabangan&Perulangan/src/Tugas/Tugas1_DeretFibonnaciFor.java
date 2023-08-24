@@ -4,17 +4,22 @@
  */
 package Tugas;
 
+import static Tugas.Tugas1_DeretFibonnaci.fibonacci;
 import java.util.Scanner;
 
 /**
  *
  * @author mamir
  */
-public class Tugas1_DeretFibonnaci {
+public class Tugas1_DeretFibonnaciFor {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = 1;
+        int i1 = 0;
+        int i2 = 1;
+        int hasil = 1;
+
         try {
             System.out.println("Masukkan berapa deret Fibonacci? ");
             n = (int) in.nextInt();
@@ -22,17 +27,23 @@ public class Tugas1_DeretFibonnaci {
             System.out.println("Error: " + e.toString());
         }
         System.out.print(n + "deret Fibonacci = ");
-        for(int i = 1; i <= n; i++){
-            System.out.print(fibonacci(i) + " ");
+        for (int i = 1; i <= n; i++) {
+            int temp1, temp2;
+            if (i == 1) {
+                System.out.print(i1 + " ");
+            } else if (i == 2) {
+                System.out.print(i2 + " ");
+            } else {
+                temp1 = i1;
+                temp2 = i2;
+                i1 = i2;
+                hasil = temp1 + temp2;
+                i2 = hasil;
+
+                System.out.print(hasil + " ");
+            }
         }
         System.out.println();
-    }
-
-    public static int fibonacci(int n) {
-        if (n <= 1) {
-            return n;
-        }
-        return fibonacci(n - 1) + fibonacci(n - 2);
 
     }
 }
