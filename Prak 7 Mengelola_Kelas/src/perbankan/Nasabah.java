@@ -18,6 +18,13 @@ public class Nasabah {
         this.namaAkhir = namaAkhir;
     }
     
+    public Nasabah(String namaAwal, String namaAkhir, Tabungan tabungan){
+        this.namaAwal = namaAwal;
+        this.namaAkhir = namaAkhir;
+        this.tabungan = tabungan;
+    }
+    
+    
     public String getNamaAwal(){
         return namaAwal;
     }

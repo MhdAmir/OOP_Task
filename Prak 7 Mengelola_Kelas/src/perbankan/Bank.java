@@ -4,27 +4,43 @@
  */
 package perbankan;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author mamir
  */
 public class Bank {
-    Nasabah[] nasabah;
-    int jumlahNasabah;
-    
-    public Bank(){}
-    
-    public void tambahNasabah(String namaAwal, String namaAkhir){
-        if(nasabah == null){
-            nasabah = new Nasabah[100];
+
+    LinkedList<Nasabah> nasabah;
+    public Bank() {
+    }
+
+    public void tambahNasabah(String namaAwal, String namaAkhir) {
+        if (nasabah == null) {
+            nasabah = new LinkedList<>();
         }
-        nasabah[jumlahNasabah] = new Nasabah(namaAwal, namaAkhir);
-        jumlahNasabah++;
+        nasabah.add(new Nasabah(namaAwal, namaAkhir));
     }
-    public int getJumlahNasabah(){
-        return jumlahNasabah;
+
+    public int getJumlahNasabah() {
+        if (nasabah == null) {
+            return 0;
+        } else {
+            return nasabah.size();
+
+        }
     }
-    public Nasabah getNasabah(int indeks){
-        return nasabah[indeks];
+
+    public Nasabah getNasabah(int indeks) {
+        return nasabah.get(indeks);
+    }
+
+    public void hapusNasabah(int indeks) {
+            nasabah.remove(indeks);
+    }
+
+    public void editNasabah(int indeks, Nasabah nasabah) {
+        this.nasabah.set(indeks, nasabah);
     }
 }
