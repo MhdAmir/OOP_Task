@@ -10,17 +10,28 @@ public class Dosen extends Orang {
 
     public Dosen(String nama, int nip) {
         super(nama);
+        this.nip = nip;
     }
 
     public Dosen(String nama, int nip, int umur) {
-        super(nama, nip);
-        this.umur = umur;
+        super(nama, umur);
+        this.nip = nip;
     }
-    
-    public void Info(){
+
+    public void Info() {
         System.out.println("nama : " + super.nama);
-        System.out.println("umur : " + super.umur);
-        System.out.println("nip : " + this.nip);
+
+        if (this.nip != 0) {
+            System.out.println("nip : " + this.nip);
+        } else {
+            System.out.println("nip : -");
+        }
+        
+        if (super.umur != 0) {
+            System.out.println("umur : " + super.umur);
+        } else {
+            System.out.println("umur : -");
+        }
     }
 
 }
